@@ -24,7 +24,7 @@ const HomeEmp = () => {
   };
  
   return (
-    <div>
+    <div style={{color:"white"}}>
       <h1>Training Data</h1>
       <table border="1">
         <thead>

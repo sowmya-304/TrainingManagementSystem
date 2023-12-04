@@ -40,7 +40,7 @@ const FeedBack = () => {
   };
 
   return (
-    <div>
+    <div style={{color:"white"}}>
       <div>
         <h1>Feedback For Course Attended</h1>
         <form name="myform">

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 function LoginRadio() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [userType, setUserType] = useState(''); 
+  const [userType, setUserType] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -19,19 +19,24 @@ function LoginRadio() {
       });
 
       if (response.ok) {
-        // Set user role in session storage
-    
-        sessionStorage.setItem('userRole', userType);
-        sessionStorage.setItem('uid', username); 
-        // Navigate to the appropriate master page based on userType
+        // Set user role in session storage based on userType
         switch (userType) {
           case 'Employee':
-            navigate('/EmpHome');
+            sessionStorage.setItem('userRole', userType);
+            sessionStorage.setItem('uid', username);
+            sessionStorage.setItem('layout', 'Employee');
+            navigate('/HomeEmp');
             break;
           case 'Manager':
+            sessionStorage.setItem('userRole', userType);
+            sessionStorage.setItem('uid', username);
+            sessionStorage.setItem('layout', 'Manager');
             navigate('/HomeManager');
             break;
           case 'Hr':
+            sessionStorage.setItem('userRole', userType);
+            sessionStorage.setItem('uid', username);
+            sessionStorage.setItem('layout', 'HR');
             navigate('/HrHome');
             break;
           default:
@@ -46,15 +51,15 @@ function LoginRadio() {
       alert('An unexpected error occurred');
     }
   };
+
   const handleNewUserClick = () => {
     // Add your logic to handle new user registration or navigation
     // For example, navigate to a registration page
     navigate('/Register');
   };
-
-
+ 
   return (
-    <div className="container mt-5">
+    <div className="container mt-5" style={{color:"white"}}>
     <div className="col-md-6 offset-md-3">
     <div className="login-container" style={{width:"300px",height:"200px"}}>
     <form onSubmit={handleSubmit} className="mb-3">
@@ -86,7 +91,7 @@ function LoginRadio() {
           required
         />
       </div>
-
+ 
       <div className="user-type-radio mb-3">
         <label>
           <input type="radio" name="userType" value="Employee" checked={userType === 'Employee'}  onChange={() => setUserType('Employee')}
@@ -114,7 +119,7 @@ function LoginRadio() {
           HR
         </label>
       </div>
-
+ 
       <div className="d-grid gap-2">
         <button type="submit" className="btn btn-primary">
           Submit
@@ -133,5 +138,5 @@ function LoginRadio() {
   </div>
 );
 }
-
+ 
 export default LoginRadio;

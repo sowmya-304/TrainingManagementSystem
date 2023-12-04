@@ -24,7 +24,7 @@ const EmployeeData = () => {
   };
 
   return (
-    <div>
+    <div style={{color:"white"}}>
       <h1>Welcome Home </h1>
       <table border="1">
         <thead>

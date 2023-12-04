@@ -7,7 +7,7 @@ const Logout = () => {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <div style={{color:"white"}}>
       Thanks For Using Service
       <button className='btn btn-info' onClick={() => navigate('/LoginRadio')}>
         Click Here to Login Again

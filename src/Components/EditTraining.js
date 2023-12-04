@@ -36,7 +36,7 @@ const EditTraining = () => {
   };
 
   return (
-    <div>
+    <div style={{color:"white"}}>
       <form name="myform">
         <label>Training ID</label>
         <input type="text" name="cid" value={trainingId} className="form-control" readOnly />

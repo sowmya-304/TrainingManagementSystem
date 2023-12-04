@@ -29,7 +29,7 @@ const DeleteTraining = () => {
   }
 
   return (
-    <div>
+    <div style={{color:"white"}}>
       <div>
         <h1>Are you sure you want to delete this training data?</h1>
         <div style={{ marginLeft: "300px", padding: "50px" }}>

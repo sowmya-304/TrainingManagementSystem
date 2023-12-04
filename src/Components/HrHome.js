@@ -25,7 +25,7 @@ const HrHome = () => {
   };
 
   return (
-    <div>
+    <div style={{color:"white"}}>
   <div> {isUserLoggedIn && (
       <div><h1>Welcome Hr : {sessionStorage.getItem('uid')}</h1></div>
     )}</div>

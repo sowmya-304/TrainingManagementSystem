@@ -21,7 +21,7 @@ const Attendance = () => {
   }, [userId]);
 
   return (
-    <div>
+    <div style={{color:"white"}}>
       <h1>View Attendance</h1>
       <label htmlFor="userId">User ID:</label>
       <input
@@ -30,7 +30,7 @@ const Attendance = () => {
         value={userId}
         onChange={(e) => setUserId(e.target.value)}
       />
-      <button onClick={fetchAttendance}>View Attendance</button>
+      <button className='btn btn-success' onClick={fetchAttendance}>View Attendance</button>
 
       {attendance.length > 0 ? (
         <table border={1}>

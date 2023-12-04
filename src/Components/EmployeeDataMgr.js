@@ -24,7 +24,7 @@ const EmployeeDataMgr = () => {
   };
 
   return (
-    <div>
+    <div style={{color:"white"}}>
       <h1>Employee Database </h1>
       <table border="1">
         <thead>

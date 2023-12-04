@@ -50,10 +50,10 @@ const AddTr = () => {
         <input type="text" ref={descriptionRef} className="form-control" />
 
         <label>Enter startDate</label>
-        <input type="text" ref={startDateRef} className="form-control" />
+        <input type="date" ref={startDateRef} className="form-control" />
 
         <label>Enter endDate</label>
-        <input type="text" ref={enddateRef} className="form-control" />
+        <input type="date" ref={enddateRef} className="form-control" />
         <br />
         <br />
 

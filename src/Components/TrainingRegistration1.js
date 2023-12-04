@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
  
 const TrainingRegistration1 = () => {
-  const [TrainingData, setTrainingData] = useState([]);
+  const [trainingData, setTrainingData] = useState([]);
+  const [appliedCourses, setAppliedCourses] = useState([]);
+  const [showAppliedCourses, setShowAppliedCourses] = useState(false);
  
   useEffect(() => {
-    FetchData();
+    fetchTrainingData();
   }, []);
  
-  const FetchData = async () => {
+  const fetchTrainingData = async () => {
     const url = 'https://localhost:7241/api/db7/';
     try {
       const response = await fetch(url);
@@ -23,35 +25,108 @@ const TrainingRegistration1 = () => {
     }
   };
  
+  const isCourseDisabled = (startDate, endDate) => {
+    // Check if the course is applied
+    if (appliedCourses.length > 0) {
+      // Check if any applied course has overlapping dates
+      for (const appliedCourse of appliedCourses) {
+        if (
+          (startDate >= appliedCourse.startDate && startDate <= appliedCourse.endDate) ||
+          (endDate >= appliedCourse.startDate && endDate <= appliedCourse.endDate)
+        ) {
+          return true; // Disable the course if overlapping dates found
+        }
+      }
+    }
+    return false; // Enable the course if no overlapping dates found
+  };
+ 
+  const handleApply = async (trainingId, courseName, description, startDate, endDate) => {
+    if (!appliedCourses.some((course) => course.trainingId === trainingId)) {
+      // Apply for the course
+      const appliedCourse = { trainingId, courseName, startDate, endDate };
+ 
+      try {
+        const response = await fetch('https://localhost:7241/api/appendAT', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(appliedCourse),
+        });
+ 
+        if (!response.ok) {
+          throw new Error('Failed to apply for the course');
+        }
+ 
+        setAppliedCourses([...appliedCourses, appliedCourse]);
+        setShowAppliedCourses(true);
+ 
+        // TODO: Add any additional logic after successful registration
+      } catch (error) {
+        console.log(error);
+        // TODO: Handle the error, display a message to the user, etc.
+      }
+    }
+  };
+ 
+ 
   return (
-    <div>
+    <div style={{color:"white"}}>
       <h1>Training Data</h1>
-      <table border="1">
+      <table border="1" >
         <thead>
           <tr>
             <th>CourseName</th>
-            <th>Description </th>
+            <th>Description</th>
             <th>StartDate</th>
-            <th>EndDate </th>
+            <th>EndDate</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          {TrainingData.map((i) => (
-            <tr key={i.trainingId}>
-                <td>{i.courseName}</td>
-              <td>{i.description}</td>
-              <td>{i.startDate}</td>
-              <td>{i.enddate}</td>
+          {trainingData.map((item) => (
+            <tr key={item.trainingId}>
+              <td>{item.courseName}</td>
+              <td>{item.description}</td>
+              <td>{item.startDate}</td>
+              <td>{item.enddate}</td>
               <td>
-              <Link  to={'/AcceptOrReject1?c='+ i.trainingId + '&f=' + i.courseName + '&l=' + i.description + '&m=' + i.startDate + '&i=' + i.enddate} className="btn btn-success">Apply</Link>
+                <button 
+                  onClick={() =>
+                    handleApply(
+                      item.trainingId,
+                      item.courseName,
+                      item.description,
+                      item.startDate,
+                      item.enddate
+                    )
+                  }
+                  disabled={isCourseDisabled(item.startDate, item.enddate)}
+                  className="btn btn-success"
+                >
+                  Apply
+                </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-      <br/> <br/><br/> <br/><br/> <br/>
  
+      {showAppliedCourses && (
+        <div>
+          <h2>Applied Courses</h2>
+          <ul>
+            {appliedCourses.map((course) => (
+              <li key={course.trainingId}>
+                Training ID: {course.trainingId},Course Id: {course.CourseId}, Course Name: {course.courseName}, Start Date: {course.startDate}, End Date: {course.endDate}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+ 
+      <br /> <br />
     </div>
   );
 };

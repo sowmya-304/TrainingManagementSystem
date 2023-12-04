@@ -24,7 +24,7 @@ const ManagerData = () => {
   };
 
   return (
-    <div>
+    <div style={{color:"white"}}>
       <h1>Manager Data</h1>
       <table border="1">
         <thead>

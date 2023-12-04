@@ -24,9 +24,9 @@ const TrainingData = () => {
   };
  
   return (
-    <div>
+    <div style={{color:"white"}}>
       <h1>Training Data</h1>
-      <table border="1">
+      <table border="1" >
         <thead>
           <tr>
             <th> CourseName </th>
@@ -44,14 +44,14 @@ const TrainingData = () => {
               <td>{i.startDate}</td>
               <td>{i.enddate}</td>
               <td>
-              <Link  to={'/EditTraining?c='+ i.trainingId + '&f=' + i.courseName + '&l=' + i.description + '&m=' + i.startDate + '&i=' + i.enddate} className="btn btn-success">Edit</Link>
-                <Link  to={'/DeleteTraining?c='+ i.trainingId } className="btn btn-success">Delete</Link>
+              <Link  to={'/HrHome/EditTraining?c='+ i.trainingId + '&f=' + i.courseName + '&l=' + i.description + '&m=' + i.startDate + '&i=' + i.enddate} className="btn btn-success">Edit</Link>
+                <Link  to={'/HrHome/DeleteTraining?c='+ i.trainingId } className="btn btn-success">Delete</Link>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-     <center><Link to={`/AddTr`} className="btn btn-success">AddTrainingData</Link></center>
+     <center><Link to={`/HrHome/TrainingData/AddTr`} className="btn btn-success">AddTrainingData</Link></center>
  
     </div>
   );

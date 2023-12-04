@@ -22,7 +22,7 @@ const ViewFeedBack1 = () => {
   };
 
   return (
-    <div>
+    <div style={{color:"white"}}>
       <h1>Feedback Data</h1>
       <table border="1">
         <thead>

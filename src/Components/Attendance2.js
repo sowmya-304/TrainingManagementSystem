@@ -56,7 +56,7 @@ const Attendance2 = () => {
   };
  
   return (
-    <div>
+    <div style={{color:"white"}}>
       <label>enter EmployeeId</label>
       <input type="text" ref={EmployeeId} className='form-control' />
       <label>enter TrainingId</label>
