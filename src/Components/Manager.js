@@ -46,7 +46,7 @@ const Manager = () => {
                   </li>
                 ) : (
                   <li>
-                    <Link className="nav-item nav-link" to="/LoginRadio">
+                    <Link className="nav-item nav-link" to="/Login">
                       Login
                     </Link>
                   </li>

@@ -1,4 +1,5 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const AddTr = () => {
   const courseNameRef = useRef('');
@@ -6,6 +7,8 @@ const AddTr = () => {
   const startDateRef = useRef('');
   const enddateRef = useRef('');
 
+  const [message, setMessage] = useState(null);
+const ob=useNavigate();
   function AddRecord() {
     const courseName = courseNameRef.current.value;
     const description = descriptionRef.current.value;
@@ -29,19 +32,20 @@ const AddTr = () => {
     })
       .then((response) => {
         if (response.ok) {
-          alert('Training data added successfully');
+          setMessage('Training data added successfully');
+          ob("/HrHome/TrainingData")
         } else {
           throw new Error('Failed to add training data');
         }
       })
       .catch((error) => {
         console.error(error);
-        alert('Failed to add training data');
+        setMessage('Failed to add training data');
       });
   }
 
   return (
-    <div>
+    <div style={{ color: 'white' }}>
       <div>
         <label>Enter courseName</label>
         <input type="text" ref={courseNameRef} className="form-control" />
@@ -60,6 +64,10 @@ const AddTr = () => {
         <button type="button" className="btn btn-primary" onClick={AddRecord}>
           ADD
         </button>
+
+        {message && (
+          <p style={{ color: 'yellow' }}>{message}</p>
+        )}
       </div>
     </div>
   );

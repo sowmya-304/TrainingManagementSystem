@@ -30,7 +30,6 @@ const EmployeeData = () => {
         <thead>
           <tr>
             <th>Employee ID</th>
-            <th>User ID</th>
             <th>Manager ID</th>
             <th>Employee Name</th>
             <th>Email</th>
@@ -42,15 +41,13 @@ const EmployeeData = () => {
           {employeeData.map((employee) => (
             <tr key={employee.employeeId}>
               <td>{employee.employeeId}</td>
-              <td>{employee.userId}</td>
               <td>{employee.managerId}</td>
               <td>{employee.employeeName}</td>
               <td>{employee.email}</td>
               <td>{employee.mobile}</td>
               <td>
-                <Link to={`/EditContact?c=${employee.employeeId}&f=${employee.employeeName}&l=${employee.email}&m=${employee.mobile}&i=${employee.managerId}`} className="btn btn-success">EditEmployee</Link>
-                <Link to={`/DeleteContact?c=${employee.employeeId}`} className="btn btn-danger">DeleteEmployee</Link>
-                <button className='btn btn-warning'>UpdateEmployee</button>
+                <Link to={`/HrHome/EditEmployee?c=${employee.employeeId}&f=${employee.employeeName}&l=${employee.email}&m=${employee.mobile}&i=${employee.managerId}`} className="btn btn-success">UpdateEmployee</Link>
+                <Link to={`/HrHome/DeleteEmployee?c=${employee.employeeId}`} className="btn btn-danger">DeleteEmployee</Link>
               </td>
             </tr>
           ))}

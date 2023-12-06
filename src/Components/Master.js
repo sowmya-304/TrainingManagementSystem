@@ -28,19 +28,19 @@ const Master = () => {
                 {/* Links based on user role */}
                 {isUserLoggedIn && userRole === 'Hr' && (
                   <>
-                    <Link to="HrHome/TrainingData" className="nav-item nav-link">
+                    <Link to="/HrHome/TrainingData" className="nav-item nav-link">
                       Training Data
                     </Link>
-                    <Link to="HrHome/ManagerData" className="nav-item nav-link">
+                    <Link to="/HrHome/ManagerData" className="nav-item nav-link">
                       Manager Data
                     </Link>
-                    <Link to="HrHome/EmployeeData" className="nav-item nav-link">
+                    <Link to="/HrHome/EmployeeData" className="nav-item nav-link">
                       Employee Data
                     </Link>
-                    <Link to="HrHome/ViewFeedBack" className="nav-item nav-link">
+                    <Link to="/HrHome/ViewFeedBack" className="nav-item nav-link">
                       View Feedback
                     </Link>
-                    <Link to="HrHome/Attendance" className="nav-item nav-link">
+                    <Link to="/HrHome/Attendance" className="nav-item nav-link">
                       Attendance
                     </Link>
                     {/* Add more HR-specific links here */}
@@ -57,7 +57,7 @@ const Master = () => {
                   </li>
                 ) : (
                   <li>
-                    <Link className="nav-item nav-link" to="/LoginRadio">
+                    <Link className="nav-item nav-link" to="/Login">
                       Login
                     </Link>
                   </li>

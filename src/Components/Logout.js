@@ -7,11 +7,13 @@ const Logout = () => {
   const navigate = useNavigate();
 
   return (
-    <div style={{color:"white"}}>
-      Thanks For Using Service
-      <button className='btn btn-info' onClick={() => navigate('/LoginRadio')}>
+    <div style={{color:"white" }}>
+      <center>  <br/>   <br/>   <br/>   <br/>   <br/>   <br/>   <br/>   <br/>   <br/>   <br/> Thanks For Using Service&nbsp;
+      <button className='btn btn-info' onClick={() => navigate('/Login')}>
         Click Here to Login Again
       </button>
+      </center>
+
     </div>
   );
 };

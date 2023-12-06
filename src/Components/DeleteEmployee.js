@@ -2,11 +2,11 @@ import React,  {useState, useEffect , useRef } from 'react';
 import { useNavigate } from "react-router-dom";
 
 
-const DeleteContact = () => {
+const DeleteEmployee = () => {
     var ob = useNavigate();
     function NoMethod()
     {   
-        ob('/Home')
+        ob('/HrHome')
     }
     
     function DeleteRecord()
@@ -17,7 +17,7 @@ const DeleteContact = () => {
         method: 'DELETE'
        })
        .then((response) => {
-        alert("done")
+        ob('/HrHome/EmployeeData')
         console.log(response);
        })
        .catch((error) => {
@@ -26,7 +26,7 @@ const DeleteContact = () => {
     
       }
     return (
-        <div>
+        <div style={{color:'white'}}>
                 
         <h1>Are you sure you want to delete this contact?</h1>
         <div style={{marginLeft:"300px", padding:"50px"}}>
@@ -38,4 +38,4 @@ const DeleteContact = () => {
     );
 };
 
-export default DeleteContact;
+export default DeleteEmployee;
