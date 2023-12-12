@@ -56,12 +56,12 @@ const Attendance2 = () => {
   };
  
   return (
-    <div style={{color:"white"}}>
-      <label>enter EmployeeId</label>
-      <input type="text" ref={EmployeeId} className='form-control' />
-      <label>enter TrainingId</label>
+    <div style={{color:"white",width:"50%"}}>
+      <label>Enter EmployeeId</label>
+      <input type="text" ref={EmployeeId} className='form-control'/>
+      <label>Enter TrainingId</label>
       <input type="text" ref={Trainingid} className='form-control' />
-      <label>enter Date</label>
+      <label>Enter Date</label>
       <input
         type="text"
         value={date}
@@ -69,7 +69,7 @@ const Attendance2 = () => {
         className='form-control'
       />
       <button onClick={handleDateChange}>Set Today's Date</button>
-      <label>enter Attendance</label>
+      <label>Enter Attendance</label>
       <input type="number" ref={MarkAttendence} className='form-control' />
       <input
         type="submit"
