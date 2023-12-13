@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef,useNavigate,setMessageError } from 'react';
 
 const Register = () => {
   const navigate = useNavigate();
@@ -26,7 +26,7 @@ const Register = () => {
       "Mobile": mobile.current.value,
     };
 
-    fetch('https://localhost:7241/api/adduser/', {
+    fetch('https://localhost:7186/api/adduser/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(jsonDataUser),
@@ -41,7 +41,7 @@ const Register = () => {
       .then((user) => {
         jsonDataEmployee.UserId = user.UserId;
 
-        fetch('https://localhost:7241/api/addemp/', {
+        fetch('https://localhost:7186/api/addemp/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(jsonDataEmployee),
