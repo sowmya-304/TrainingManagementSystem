@@ -15,7 +15,7 @@ const AcceptOrReject = () => {
       Reason: reason,
     };
  
-    fetch('https://localhost:7241/api/addtr/', {
+    fetch('https://localhost:7186/api/addtr/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(jsonData),

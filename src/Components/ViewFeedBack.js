@@ -9,7 +9,7 @@ const ViewFeedBack = () => {
   
   const fetchFeedback = async () => {
     try {
-      const response = await fetch('https://localhost:7241/api/db6/'); // Replace with the actual endpoint for fetching feedback
+      const response = await fetch('https://localhost:7186/api/db6/'); // Replace with the actual endpoint for fetching feedback
       if (!response.ok) {
         throw new Error('Failed to fetch feedback data');
       }

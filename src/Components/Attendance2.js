@@ -20,13 +20,13 @@ const Attendance2 = () => {
     console.log(jsonData);
  
  
-  fetch(`https://localhost:7241/api/attbyuserid?employeeId=${jsonData.EmployeeId}&date=${jsonData.Date}`)
+  fetch(`https://localhost:7186/api/attbyuserid?employeeId=${jsonData.EmployeeId}&date=${jsonData.Date}`)
       .then((response) => response.json())
       .then((data) => {
         if (data.attendanceGiven) {
           alert('Attendance already marked for this candidate on this date.');
         } else {
-  fetch('https://localhost:7241/api/attadduser', {
+  fetch('https://localhost:7186/api/attadduser', {
             method: 'post',
             headers: {
               'Content-Type': 'application/json',
@@ -56,20 +56,20 @@ const Attendance2 = () => {
   };
  
   return (
-    <div style={{color:"white"}}>
-      <label>enter EmployeeId</label>
-      <input type="text" ref={EmployeeId} className='form-control' />
-      <label>enter TrainingId</label>
+    <div style={{color:"white",width:"50%"}}>
+      <label>Enter EmployeeId</label>
+      <input type="text" ref={EmployeeId} className='form-control'/>
+      <label>Enter TrainingId</label>
       <input type="text" ref={Trainingid} className='form-control' />
-      <label>enter Date</label>
+      <label>Enter Date</label>
       <input
         type="text"
         value={date}
         readOnly
         className='form-control'
       />
-      <button onClick={handleDateChange}>Set Today's Date</button>
-      <label>enter Attendance</label>
+      <button onClick={handleDateChange}>Set Today's Date</button><br/>
+      <label>Enter Attendance</label>
       <input type="number" ref={MarkAttendence} className='form-control' />
       <input
         type="submit"

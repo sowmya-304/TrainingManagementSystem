@@ -13,7 +13,7 @@ const DeleteEmployee = () => {
     {
         const qp = new URLSearchParams(window.location.search)
         var id= qp.get("c")
-    fetch('https://localhost:7241/api/delete?id='+id, {
+    fetch('https://localhost:7186/api/delete?id='+id, {
         method: 'DELETE'
        })
        .then((response) => {

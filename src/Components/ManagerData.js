@@ -9,7 +9,7 @@ const ManagerData = () => {
   }, []);
 
   const FetchData = async () => {
-    const url = 'https://localhost:7241/api/db3/'; 
+    const url = 'https://localhost:7186/api/db3/'; 
     try {
       const response = await fetch(url);
       if (!response.ok) {

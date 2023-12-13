@@ -18,8 +18,30 @@ const Employee = () => {
 
   return (
     <div>
+              <img src="/Assets/Images/banner1.jpeg" style={{ width: '100%', height: '170px' }} />
+
       <div>
-      <img src="/assets/images/banner1.jpeg" style={{ width: '100%', height: '170px' }}  />
+      {/* <div className="carousel slide" data-ride="carousel" > 
+  <div className="carousel-inner">
+    <div className="carousel-item active">
+      <img className="d-block w-100" src="/assets/images/b1.jpeg" style={{ width: '100%', height: '170px' }} alt="First slide"/>
+    </div>
+    <div className="carousel-item">
+      <img className="d-block w-100" src="/assets/images/b2.jpeg" style={{ width: '100%', height: '170px' }} alt="Second slide"/>
+    </div>
+    <div className="carousel-item">
+      <img className="d-block w-100" src="/assets/images/b3.jpeg" style={{ width: '100%', height: '170px' }} alt="Third slide"/>
+    </div>
+    <Link className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span className="sr-only">Previous</span>
+  </Link>
+  <Link className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span className="carousel-control-next-icon" aria-hidden="true">
+    <span className="sr-only">Next</span></span>
+  </Link>
+  </div> */}
+
         <div>
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
@@ -28,9 +50,9 @@ const Employee = () => {
                 {/* Links based on user role */}
                 {isUserLoggedIn && userRole === 'Employee' && (
                   <>
-                    <Link to="/HomeEmp" className="nav-item nav-link">
+                    {/* <Link to="/HomeEmp" className="nav-item nav-link">
                       Home
-                    </Link>
+                    </Link> */}
                     {/* Add other Employee-specific links */}
                     {/* For example */}
                     <Link to="/HomeEmp/TrainingRegistration1" className="nav-item nav-link">
@@ -58,7 +80,7 @@ const Employee = () => {
                   </li>
                 ) : (
                   <li>
-                    <Link className="nav-item nav-link" to="/Login">
+                    <Link className="nav-item nav-link" to="/LoginRadio">
                       login
                     </Link>
                   </li>
@@ -76,7 +98,9 @@ const Employee = () => {
           </div>
         </div>
       </div>
-    </div>
+     </div>
+
+    
   );
 };
 

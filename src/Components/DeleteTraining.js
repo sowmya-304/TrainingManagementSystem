@@ -12,7 +12,7 @@ const DeleteTraining = () => {
     const qp = new URLSearchParams(window.location.search);
     const trainingId = qp.get("c"); // Update to use "c"
 
-    fetch(`https://localhost:7241/api/deletetd?id=${trainingId}`, {
+    fetch(`https://localhost:7186/api/deletetd?id=${trainingId}`, {
       method: 'DELETE',
     })
       .then((response) => {

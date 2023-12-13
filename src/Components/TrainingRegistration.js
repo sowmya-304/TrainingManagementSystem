@@ -9,7 +9,7 @@ const TrainingRegistration = () => {
   }, []);
  
   const FetchData = async () => {
-    const url = 'https://localhost:7241/api/db7/';
+    const url = 'https://localhost:7186/api/db7/';
     try {
       const response = await fetch(url);
       if (!response.ok) {

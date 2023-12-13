@@ -19,7 +19,7 @@ const FeedBack = () => {
       FeedbackDate: new Date().toISOString(),
     };
 
-    fetch('https://localhost:7241/api/addfdb/', {
+    fetch('https://localhost:7186/api/addfdb/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

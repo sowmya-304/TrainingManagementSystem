@@ -17,7 +17,7 @@ const EditTraining = () => {
       "Enddate": endDate,
     };
 
-    fetch('https://localhost:7241/api/edittd', {
+    fetch('https://localhost:7186/api/edittd', {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(jsonData),

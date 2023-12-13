@@ -6,7 +6,7 @@ const Attendance = () => {
 
   const fetchAttendance = () => {
     // Replace with the appropriate URL to fetch attendance for a specific user
-    fetch(`https://localhost:7241/api/attbyuserid?id=${userId}`)
+    fetch(`https://localhost:7186/api/attbyuserid?id=${userId}`)
       .then((response) => response.json())
       .then((data) => {
         setAttendance(data);

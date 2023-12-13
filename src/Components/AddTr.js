@@ -25,7 +25,7 @@ const ob=useNavigate();
       Enddate: enddate,
     };
 
-    fetch('https://localhost:7241/api/addtd/', {
+    fetch('https://localhost:7186/api/addtd/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(jsonData),

@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
- 
+
 const TrainingRegistration1 = () => {
   const [trainingData, setTrainingData] = useState([]);
   const [appliedCourses, setAppliedCourses] = useState([]);
   const [showAppliedCourses, setShowAppliedCourses] = useState(false);
- 
+  const employeeId = sessionStorage.getItem('employeeId');
+
   useEffect(() => {
     fetchTrainingData();
   }, []);
- 
+
   const fetchTrainingData = async () => {
-    const url = 'https://localhost:7241/api/db7/';
+    const url = 'https://localhost:7186/api/db7/';
     try {
       const response = await fetch(url);
       if (!response.ok) {
@@ -24,44 +24,42 @@ const TrainingRegistration1 = () => {
       console.log(error);
     }
   };
- 
+
   const isCourseDisabled = (startDate, endDate) => {
-    // Check if the course is applied
     if (appliedCourses.length > 0) {
-      // Check if any applied course has overlapping dates
       for (const appliedCourse of appliedCourses) {
         if (
           (startDate >= appliedCourse.startDate && startDate <= appliedCourse.endDate) ||
           (endDate >= appliedCourse.startDate && endDate <= appliedCourse.endDate)
         ) {
-          return true; // Disable the course if overlapping dates found
+          return true;
         }
       }
     }
-    return false; // Enable the course if no overlapping dates found
+    return false;
   };
- 
+
   const handleApply = async (trainingId, courseName, description, startDate, endDate) => {
     if (!appliedCourses.some((course) => course.trainingId === trainingId)) {
       // Apply for the course
-      const appliedCourse = { trainingId, courseName, startDate, endDate };
- 
+      const appliedCourse = { trainingId, courseName, startDate, endDate, employeeId };
+
       try {
-        const response = await fetch('https://localhost:7241/api/appendAT', {
+        const response = await fetch('https://localhost:7186/api/appendAT', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(appliedCourse),
         });
- 
+
         if (!response.ok) {
           throw new Error('Failed to apply for the course');
         }
- 
+
         setAppliedCourses([...appliedCourses, appliedCourse]);
         setShowAppliedCourses(true);
- 
+
         // TODO: Add any additional logic after successful registration
       } catch (error) {
         console.log(error);
@@ -69,12 +67,11 @@ const TrainingRegistration1 = () => {
       }
     }
   };
- 
- 
+
   return (
-    <div style={{color:"white"}}>
+    <div style={{ color: 'white' }}>
       <h1>Training Data</h1>
-      <table border="1" >
+      <table border="1">
         <thead>
           <tr>
             <th>CourseName</th>
@@ -92,7 +89,7 @@ const TrainingRegistration1 = () => {
               <td>{item.startDate}</td>
               <td>{item.enddate}</td>
               <td>
-                <button 
+                <button
                   onClick={() =>
                     handleApply(
                       item.trainingId,
@@ -112,7 +109,7 @@ const TrainingRegistration1 = () => {
           ))}
         </tbody>
       </table>
- 
+
       {showAppliedCourses && (
         <div>
           <h2>Applied Courses</h2>
@@ -125,10 +122,10 @@ const TrainingRegistration1 = () => {
           </ul>
         </div>
       )}
- 
+
       <br /> <br />
     </div>
   );
 };
- 
+
 export default TrainingRegistration1;
