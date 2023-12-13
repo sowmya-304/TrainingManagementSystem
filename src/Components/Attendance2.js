@@ -68,8 +68,8 @@ const Attendance2 = () => {
         readOnly
         className='form-control'
       />
-      <button onClick={handleDateChange}>Set Today's Date</button><br/>
-      <label>Enter Attendance</label>
+      <button onClick={handleDateChange}>Set Today's Date</button>
+      <label>enter Attendance</label>
       <input type="number" ref={MarkAttendence} className='form-control' />
       <input
         type="submit"
