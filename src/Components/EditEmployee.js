@@ -40,7 +40,7 @@ const EditEmployee = () => {
 
 
   return (
-    <div style={{ color: "white",width:"50%" }}>
+    <div style={{ color: "white" }}>
       <form name="myform">
         <label>Employee ID</label>
         <input type="text" name="cid" value={employeeId} className="form-control" readOnly />

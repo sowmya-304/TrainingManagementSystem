@@ -44,8 +44,8 @@ const TrainingData = () => {
               <td>{i.startDate}</td>
               <td>{i.enddate}</td>
               <td>
-              <Link  to={'/HrHome/EditTraining?c='+ i.trainingId + '&f=' + i.courseName + '&l=' + i.description + '&m=' + i.startDate + '&i=' + i.enddate} className="btn btn-success">Edit</Link>
-                <Link  to={'/HrHome/DeleteTraining?c='+ i.trainingId } className="btn btn-success">Delete</Link>
+              <Link  to={'/HrHome/EditTraining?c='+ i.trainingId + '&f=' + i.courseName + '&l=' + i.description + '&m=' + i.startDate + '&i=' + i.enddate} className="btn btn-warning">Edit</Link>
+                <Link  to={'/HrHome/DeleteTraining?c='+ i.trainingId } className="btn btn-danger">Delete</Link>
               </td>
             </tr>
           ))}
